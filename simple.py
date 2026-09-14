@@ -9,6 +9,23 @@ logging.basicConfig(
     format='|%(asctime)s| %(message)s'
 )
 
+def count_consecutives(array: list) -> list:
+    """Returns a Run length encoding of the arrays values. (how many consecutive numbers)"""
+    count = 1
+    consecutives = []
+    value = array[0]
+    for i, x in enumerate(array[1:]):
+        if x == value:
+            count += 1
+        else:
+            consecutives.append(count)
+            value = x
+            count = 1
+    consecutives.append(count)
+    return consecutives
+
+
+
 if __name__ == "__main__":
 
     logger = logging.getLogger(__name__)
