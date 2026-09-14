@@ -6,12 +6,13 @@ logging.basicConfig(
     filename='example.log',
     encoding='utf-8',
     level=logging.DEBUG,
-    format='|%(asctime)s| %(message)s',
-    datefmt='%m/%d/%Y %I:%M:%S %p')
+    format='|%(asctime)s| %(message)s'
+)
 
 if __name__ == "__main__":
 
     logger = logging.getLogger(__name__)
+    logger.info("--------------------Starting-----------------------")
     clr_trans = {
         (232, 3, 138, 255) : "⬜️",
         (58, 185, 229, 255) : "🟩"
@@ -22,11 +23,8 @@ if __name__ == "__main__":
         }
     pixel_values = []
     img = Image.open("puzzle.png")
-    print(img.mode)
-    print(img.size)
-    print(img.getcolors())
     logger.info("Image of mode and size, %s %s, loaded.", img.mode, img.size)
-    print("----------------")
+    logger.info("Colour makeup is %s", img.getcolors())
     for y in range(img.size[1]):
         for x in range(img.size[0]):
             pixel = img.getpixel((x,y))
