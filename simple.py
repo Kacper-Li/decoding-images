@@ -34,5 +34,6 @@ if __name__ == "__main__":
             binary = bin_trans.get(pixel, "ERROR")
             pixel_values.append(binary)
             print(clr,end="")
+        print("")
     logger.info("Image read with %s rows %s columns", y,x)
     logger.info("Binary map of image created with %d values", len(pixel_values))
